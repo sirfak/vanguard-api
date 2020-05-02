@@ -110,22 +110,16 @@ public class NetAssetValueTest {
         ));
     }
 
+    @Test
+    public void GivenAPIRunning_WhenGetExecutes_DateIsReturenedAndNotInFuture()
+    {
+        NetAssetValue[] netAssetValue = new Gson().fromJson(response, NetAssetValue[].class);
+        Arrays.asList(netAssetValue).forEach(nav -> nav.getNavPriceArray().forEach(
+                arr -> {
+                    assertThat(arr.getAsOfDate(), notNullValue());
+                    //TODO: assert date is not in future
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                }
+        ));
+    }
 }
