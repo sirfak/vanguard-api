@@ -25,7 +25,8 @@ public class NetAssetValueTest {
     @Before
     public void setUp() {
 
-        baseURI= System.getProperty("host")==null?host:System.getProperty("host");
+        
+        baseURI= System.getProperty("url")==null?host:System.getProperty("url");
         RestAssured.registerParser("application/x-javascript", Parser.JSON);
         response = get("/retail/mvc/getNavPriceList.jsonp").asString();
     }
